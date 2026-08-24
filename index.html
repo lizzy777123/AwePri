@@ -1,467 +1,67 @@
-
-<!DOCTYPE html><html lang="en"><head>
-		<meta charset="utf-8">
-		<link rel="icon" type="image/png" sizes="512x512" href="https://z-cdn.chatglm.cn/z-ai/static/logo.svg">
-		<link rel="shortcut icon" href="https://z-cdn.chatglm.cn/z-ai/static/logo.svg">
-		<link rel="apple-touch-icon" sizes="512x512" href="https://z-cdn.chatglm.cn/z-ai/static/logo.svg">
-		<meta name="apple-mobile-web-app-title" content="Z.ai - Advanced AI Chatbot &amp; Agent powered by GLM-5.2">
-		
-		<meta name="keywords" content="GLM-4.6, GLM 4.6, GLM-4.6-Air, GLM 4.6 Air, GLM 4.5, GLM4.5, GLM4.6, Deep Research, z ai, z.ai, GLM 4.5 AI, GLM 4.6 AI, GLM AI, Chat Z, zai, Chat AI, GLM, z.ia, Chat Z AI, AI chat, chatbot, z.ai chat, free ai chat, free AI, free ai chat no login, GLM-4.5, GLM-4.5 chat, GLM-4.1V, GLM-4.5V, AI assistant chat, AI PPT, AI presentation, AI presentation maker, AI slides maker, AI slides, slide deck, pitch deck, AI deck generator, free pitch deck generator, AI PPT, AI PPT maker, AI for Google Slides, AI for PowerPoint, AI writer, AI writing assistant, AI code generator, full stack code generation, AI full stack developer, claude code, Roo Code, Cline, Kilo Code, OpenCode, Codex, Cursor, GLM Coding Plan, GLM Coding, AI Coding, code writer ai, magic design, magic design tool, AI inspiration board, visual brainstorming AI, chat with AI, AI对话, AI聊天, 聊天机器人, 免费AI聊天, AI做PPT, AI写作, AI编程, 全栈开发, 灵感画板, AI tool, AI helper, AI for students, AI for marketers, AI for content creation, ChatGPT, chatgpt free, Free ChatGPT, gpt chat, Gemini, Grok, Claude, Poe AI, YouChat, Jasper AI, deepseek, qwen, 豆包, 文心一言, AI搜问答, 写作灵感AI, 代码解释工具, PPT思路生成, 如何用AI做PPT, create pitch deck from brief, AI business plan presentation, marketing report slides, AI academic paper assistant, AI legal contract drafting, write social media calendar, AI email responder,  VS Code AI assistant, AI for Notion, AI for Figma, AI math problem solver from image, AI geoguessr solver, image to code generator, table extractor from image, chart data extractor, document analysis AI, image caption generator, visual Q&amp;A, 看图猜成语, AI拍照解题, 数学题解答, 物理题解答, GeoGuess AI, 图片转表格, 图片读数据, 看图问答, analyze video, summarize video content, generate video transcript, find object in image, what is in this picture, 视频分析, 视频内容摘要, 生成视频字幕, 图片里有什么, 识别图中物体, GLM-4.7, GLM 4.7, GLM4.7, skills, coding plan, GLM-5, GLM-5.0, GLM5, GLM 5, Pony, Pony Alpha, GLM-5.2, GLM 5.2, GLM5.2, long-horizon, long-running">
-
-		<!-- Google Tag Manager -->
-		<script>(function (w, d, s, l, i) {
-				w[l] = w[l] || []; w[l].push({
-					'gtm.start':
-						new Date().getTime(), event: 'gtm.js'
-				}); var f = d.getElementsByTagName(s)[0],
-					j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-						'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-			})(window, document, 'script', 'dataLayer', 'GTM-T9CBCLPX');
-		</script>
-		<!-- End Google Tag Manager -->
-
-		<link rel="manifest" href="https://z-cdn.chatglm.cn/z-ai/frontend/static/manifest.json">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
-		
-		<meta name="referrer" content="no-referrer">
-		<link rel="search" type="application/opensearchdescription+xml" title="Z.ai - Advanced AI Chatbot &amp; Agent powered by GLM-5.2" href="https://z-cdn.chatglm.cn/z-ai/frontend/static/opensearch.xml">
-		<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Z8QTHYBHP3"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			gtag('js', new Date());
-
-			gtag('config', 'G-Z8QTHYBHP3');
-		</script>
-
-		<script>
-			let metrics = {};
-			const observer = new PerformanceObserver((list) => {
-				const entries = list.getEntries();
-
-				entries.forEach((entry) => {
-					// 根据不同的entry类型处理不同的性能指标
-					switch (entry.entryType) {
-						case 'navigation':
-							{
-								const navEntry = entry;
-								metrics = {
-									...metrics,
-									dns: navEntry.domainLookupEnd - navEntry.domainLookupStart,
-									response: navEntry.responseEnd - navEntry.responseStart,
-									dom_parse: navEntry.domInteractive - navEntry.responseEnd,
-									dom_ready: navEntry.domContentLoadedEventEnd - navEntry.fetchStart,
-									resource: navEntry.domComplete - navEntry.domContentLoadedEventEnd,
-									first_interactive: navEntry.domInteractive - navEntry.fetchStart,
-									first_byte: navEntry.responseStart - navEntry.domainLookupStart,
-									loaded: navEntry.loadEventEnd - navEntry.fetchStart
-								};
-								sessionStorage.setItem('performance', JSON.stringify(metrics));
-								// 发送性能指标到阿里云日志服务
-							}
-							break;
-
-						case 'paint':
-							if (entry.name === 'first-paint') {
-								metrics = {
-									...metrics,
-									first_paint: entry.startTime
-								};
-								sessionStorage.setItem('performance', JSON.stringify(metrics));
-							}
-							if (entry.name === 'first-contentful-paint') {
-								metrics = {
-									...metrics,
-									first_contentful_paint: entry.startTime
-								};
-								sessionStorage.setItem('performance', JSON.stringify(metrics));
-							}
-							break;
-					}
-				});
-			});
-
-			// 观察的性能指标类型
-			observer.observe({
-				entryTypes: ['navigation', 'paint']
-			});
-		</script>
-
-		<script>
-			function resizeIframe(obj) {
-				obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
-			}
-		</script>
-
-		<script>
-			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
-			const initTheme = () => {
-				const metaThemeColorTag = document.querySelector('meta[name="theme-color"]');
-				// 取用户浏览器设置的主题
-				// const prefersTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-
-				const prefersTheme = 'light';
-
-				if (!localStorage?.theme) {
-					localStorage.theme = prefersTheme;
-				}
-
-				if (localStorage.theme === 'system') {
-					document.documentElement.classList.add(prefersTheme);
-					metaThemeColorTag.setAttribute(
-						'content',
-						prefersTheme === 'light' ? '#F4F6F8' : '#141618'
-					);
-				} else if (localStorage.theme === 'light') {
-					document.documentElement.classList.add('light');
-					metaThemeColorTag.setAttribute('content', '#F4F6F8');
-				} else {
-					document.documentElement.classList.add('dark');
-					metaThemeColorTag.setAttribute('content', '#141618');
-				}
-
-				// window.matchMedia('(prefers-color-scheme: dark)').addListener((e) => {
-				// 	if (localStorage.theme === 'system') {
-				// 		if (e.matches) {
-				// 			document.documentElement.classList.add('dark');
-				// 			document.documentElement.classList.remove('light');
-				// 			metaThemeColorTag.setAttribute('content', '#141618');
-				// 		} else {
-				// 			document.documentElement.classList.add('light');
-				// 			document.documentElement.classList.remove('dark');
-				// 			metaThemeColorTag.setAttribute('content', '#F4F6F8');
-				// 		}
-				// 	}
-				// });
-			};
-			initTheme();
-		</script>
-
-		
-
-		<script>
-			// 炫酷的控制台介绍 - 根据语言显示
-			(function () {
-				// 检测用户语言偏好
-				const userLang = navigator.language || navigator.userLanguage;
-				const isChinese =
-					userLang.startsWith('zh') ||
-					userLang.includes('CN') ||
-					userLang.includes('TW') ||
-					userLang.includes('HK');
-
-				// 共同的 ASCII Logo
-				const logoLines = [
-					'%c███████╗     █████╗ ██╗',
-					'%c╚══███╔╝    ██╔══██╗██║',
-					'%c  ███╔╝     ███████║██║',
-					'%c ███╔╝      ██╔══██║██║',
-					'%c███████╗ ██╗██║  ██║██║',
-					'%c╚══════╝ ╚═╝╚═╝  ╚═╝╚═╝'
-				];
-				const logoColors = [
-					'color: #ff6b6b; font-family: monospace; font-size: 12px;',
-					'color: #4ecdc4; font-family: monospace; font-size: 12px;',
-					'color: #45b7d1; font-family: monospace; font-size: 12px;',
-					'color: #f9ca24; font-family: monospace; font-size: 12px;',
-					'color: #ff9ff3; font-family: monospace; font-size: 12px;',
-					'color: #6c5ce7; font-family: monospace; font-size: 12px;'
-				];
-
-				if (isChinese) {
-					// 中文版本
-					console.log(
-						'%c🚀 欢迎来到 Z.ai 🚀',
-						'color: #00d4ff; font-size: 20px; font-weight: bold; text-shadow: 0 0 10px #00d4ff;'
-					);
-					logoLines.forEach((line, index) => console.log(line, logoColors[index]));
-					console.log('');
-					console.log(
-						'%c✨ 基于开源GLM模型的智能AI助手',
-						'color: #a29bfe; font-size: 14px; font-weight: bold;'
-					);
-					console.log('%c🧠 支持文本生成、推理和深度研究', 'color: #fd79a8; font-size: 12px;');
-					console.log('%c🌍 为中英文用户量身定制', 'color: #00b894; font-size: 12px;');
-					console.log('%c💡 免费开源的ChatGPT替代方案', 'color: #fdcb6e; font-size: 12px;');
-					console.log('');
-					console.log('%c---', 'color: #ddd;');
-					console.log(
-						'%c由 ❤️ 和大量 ☕ 驱动',
-						'color: #e84393; font-size: 11px; font-style: italic;'
-					);
-					console.log('');
-					console.log(
-						'%c🚀 加入我们！我们正在招聘优秀人才！',
-						'color: #00b894; font-size: 13px; font-weight: bold;'
-					);
-					console.log(
-						'%c💼 查看职位: https://zhipu-ai.jobs.feishu.cn/s/stmyTm5lxaU',
-						'color: #0984e3; font-size: 12px; text-decoration: underline;'
-					);
-				} else {
-					// 英文版本
-					console.log(
-						'%c🚀 Welcome to Z.ai 🚀',
-						'color: #00d4ff; font-size: 20px; font-weight: bold; text-shadow: 0 0 10px #00d4ff;'
-					);
-					logoLines.forEach((line, index) => console.log(line, logoColors[index]));
-					console.log('');
-					console.log(
-						'%c✨ Advanced AI assistant powered by open-source GLM models',
-						'color: #a29bfe; font-size: 14px; font-weight: bold;'
-					);
-					console.log(
-						'%c🧠 Supports text generation, reasoning, and deep research',
-						'color: #fd79a8; font-size: 12px;'
-					);
-					console.log(
-						'%c🌍 Tailored for both English and Chinese users',
-						'color: #00b894; font-size: 12px;'
-					);
-					console.log(
-						'%c💡 Free and open-source ChatGPT alternative',
-						'color: #fdcb6e; font-size: 12px;'
-					);
-					console.log('');
-					console.log('%c---', 'color: #ddd;');
-					console.log(
-						'%cPowered by ❤️ and lots of ☕',
-						'color: #e84393; font-size: 11px; font-style: italic;'
-					);
-					console.log('');
-					console.log(
-						'%c🚀 Join us! We are hiring talented people!',
-						'color: #00b894; font-size: 13px; font-weight: bold;'
-					);
-					console.log(
-						'%c💼 View jobs: https://zhipu-ai.jobs.feishu.cn/s/stmyTm5lxaU',
-						'color: #0984e3; font-size: 12px; text-decoration: underline;'
-					);
-				}
-			})();
-		</script>
-
-		<script type="module" crossorigin="" src="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.1.88/assets/index-DoXury07.js"></script>
-		<link rel="stylesheet" crossorigin="" href="https://z-cdn.chatglm.cn/z-ai/frontend/prod-fe-1.1.88/assets/index-URa9L_iT.css">
-	<title>Z.AI Share</title><meta name="description" content="Amazing content sharing from Z.AI"><meta property="og:type" content="website"><meta property="og:site_name" content="Z.AI"><meta property="og:title" content="Z.AI Share"><meta property="og:description" content="Amazing content sharing from Z.AI"><meta property="og:image" content="https://z-cdn.chatglm.cn/z-ai/static/share-logo.png"><meta property="og:image:alt" content="Z.AI Share"><meta property="og:image:width" content="400"><meta property="og:image:height" content="400"><meta property="og:image:type" content="image/png"><meta property="og:url" content="http://chat.z.ai/space/q1g5n7gp96r1-art"><meta property="article:author" content="Z.AI"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Z.AI Share"><meta name="twitter:description" content="Amazing content sharing from Z.AI"><meta name="twitter:image" content="https://z-cdn.chatglm.cn/z-ai/static/share-logo.png"><meta name="twitter:image:alt" content="Z.AI Share"><meta name="robots" content="index,follow"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="application-name" content="Z.AI"><meta name="theme-color" content="#1976d2"><meta name="msapplication-TileColor" content="#1976d2"><link rel="canonical" href="http://chat.z.ai/space/q1g5n7gp96r1-art"><script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
-<script>
-(function() {
-  var frontendCallId = Math.random().toString(36).substring(2, 8);
-  console.log('[WeChat-Frontend-' + frontendCallId + '] ===== 开始前端微信JS-SDK初始化 =====');
-  console.log('[WeChat-Frontend-' + frontendCallId + '] 当前页面URL:', window.location.href);
-  console.log('[WeChat-Frontend-' + frontendCallId + '] 当前页面URL (去掉#):', window.location.href.split('#')[0]);
-  console.log('[WeChat-Frontend-' + frontendCallId + '] 签名配置:', {
-    debug: false,
-    appId: 'wxa5796e47c57570b1',
-    timestamp: 1787546924,
-    nonceStr: 'yln4yjBUAoqKcxiG',
-    signature: '113e5073a6be39cbf9cf887df957220c984ada20',
-    jsApiList: ["updateAppMessageShareData","updateTimelineShareData","onMenuShareAppMessage","onMenuShareTimeline"]
-  });
-
-  // 微信 JS-SDK 配置
-  wx.config({
-    debug: false, // 根据环境变量设置debug模式
-    appId: 'wxa5796e47c57570b1', // 公众号的唯一标识
-    timestamp: 1787546924, // 生成签名的时间戳
-    nonceStr: 'yln4yjBUAoqKcxiG', // 生成签名的随机串
-    signature: '113e5073a6be39cbf9cf887df957220c984ada20', // 签名
-    jsApiList: ["updateAppMessageShareData","updateTimelineShareData","onMenuShareAppMessage","onMenuShareTimeline"] // 需要使用的JS接口列表
-  });
-
-  console.log('[WeChat-Frontend-' + frontendCallId + '] wx.config() 调用完成');
-
-  // 微信 JS-SDK 就绪回调
-  wx.ready(function () {
-    console.log('[WeChat-Frontend-' + frontendCallId + '] WeChat JS-SDK ready - 微信JS-SDK就绪!');
-
-    // 分享给朋友的配置
-    console.log('[WeChat-Frontend-' + frontendCallId + '] 开始配置分享给朋友...');
-    wx.updateAppMessageShareData({
-      title: 'Z.AI Share',
-      desc: 'Amazing content sharing from Z.AI',
-      link: 'http://chat.z.ai/space/q1g5n7gp96r1-art',
-      imgUrl: 'https://z-cdn.chatglm.cn/z-ai/static/share-logo.png',
-      success: function () {
-        console.log('[WeChat-Frontend-' + frontendCallId + '] 分享给朋友成功');
-      },
-      cancel: function () {
-        console.log('[WeChat-Frontend-' + frontendCallId + '] 分享给朋友取消');
-      }
-    });
-
-    // 分享到朋友圈的配置
-    console.log('[WeChat-Frontend-' + frontendCallId + '] 开始配置分享到朋友圈...');
-    wx.updateTimelineShareData({
-      title: 'Z.AI Share',
-      link: 'http://chat.z.ai/space/q1g5n7gp96r1-art',
-      imgUrl: 'https://z-cdn.chatglm.cn/z-ai/static/share-logo.png',
-      success: function () {
-        console.log('[WeChat-Frontend-' + frontendCallId + '] 分享到朋友圈成功');
-      },
-      cancel: function () {
-        console.log('[WeChat-Frontend-' + frontendCallId + '] 分享到朋友圈取消');
-      }
-    });
-
-    // 兼容旧版本微信客户端
-    console.log('[WeChat-Frontend-' + frontendCallId + '] 开始配置兼容旧版本分享...');
-    wx.onMenuShareAppMessage({
-      title: 'Z.AI Share',
-      desc: 'Amazing content sharing from Z.AI',
-      link: 'http://chat.z.ai/space/q1g5n7gp96r1-art',
-      imgUrl: 'https://z-cdn.chatglm.cn/z-ai/static/share-logo.png',
-      success: function () {
-        console.log('[WeChat-Frontend-' + frontendCallId + '] 兼容版分享给朋友成功');
-      },
-      cancel: function () {
-        console.log('[WeChat-Frontend-' + frontendCallId + '] 兼容版分享给朋友取消');
-      }
-    });
-
-    wx.onMenuShareTimeline({
-      title: 'Z.AI Share',
-      link: 'http://chat.z.ai/space/q1g5n7gp96r1-art',
-      imgUrl: 'https://z-cdn.chatglm.cn/z-ai/static/share-logo.png',
-      success: function () {
-        console.log('[WeChat-Frontend-' + frontendCallId + '] 兼容版分享到朋友圈成功');
-      },
-      cancel: function () {
-        console.log('[WeChat-Frontend-' + frontendCallId + '] 兼容版分享到朋友圈取消');
-      }
-    });
-
-    console.log('[WeChat-Frontend-' + frontendCallId + '] 所有分享配置完成');
-  });
-
-  // 微信 JS-SDK 错误回调
-  wx.error(function(res){
-    console.error('[WeChat-Frontend-' + frontendCallId + '] 微信JS-SDK错误:', res);
-    console.error('[WeChat-Frontend-' + frontendCallId + '] 错误详情:', JSON.stringify(res, null, 2));
-    // 可以在这里处理签名验证失败等错误
-  });
-
-  console.log('[WeChat-Frontend-' + frontendCallId + '] ===== 微信JS-SDK初始化完成 =====');
-})();
-</script></head>
-
-	<body>
-		<!-- Google Tag Manager (noscript) -->
-		<noscript>
-			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T9CBCLPX" height="0" width="0"
-				style="display:none;visibility:hidden">
-			</iframe>
-		</noscript>
-		<!-- End Google Tag Manager (noscript) -->
-
-		<script>
-			const env = location.hostname === 'chat.z.ai' ? 'prod' : 'pre';
-			!(function (c, b, d, a) {
-				c[a] || (c[a] = {});
-				c[a] = {
-					pid: 'j2c03hoppk@9a8be198b65ba4b',
-					endpoint: 'https://j2c03hoppk-default-cn.rum.aliyuncs.com',
-					// 设置环境信息，参考值：'prod' | 'gray' | 'pre' | 'daily' | 'local'
-					env: env,
-					// 设置路由模式， 参考值：'history' | 'hash'
-					spaMode: 'history',
-					collectors: {
-						// 页面性能指标监听开关，默认开启
-						perf: true,
-						// WebVitals指标监听开关，默认开启
-						webVitals: false,
-						// Ajax监听开关，默认开启
-						api: true,
-						// 静态资源开关，默认开启
-						staticResource: true,
-						// JS错误监听开关，默认开启
-						jsError: true,
-						// 控制台错误监听开关，默认开启
-						consoleError: false,
-						// 用户行为监听开关，默认开启
-						action: true
-					},
-					// 链路追踪配置开关，默认关闭
-					tracing: false,
-					parseViewName(url) {
-						const pathname = new URL(url).pathname;
-						if (!pathname) {
-							return '/';
-						}
-						return pathname.replace(/(.*)\/[a-f0-9-]+$/g, '$1');
-					},
-					evaluateApi(options, response) {
-						const traceId = response?.headers?.get?.('X-Trace-Id') || 'unknown';
-
-						return {
-							name: options.url.replace(/\/[a-f0-9-]{36}/g, '/**'),
-							properties: {
-								traceId
-							}
-						};
-					}
-				};
-				with (b)
-					with (body)
-						with (insertBefore(createElement('script'), firstChild))
-							setAttribute('crossorigin', '', (src = d));
-			})(window, document, 'https://sdk.rum.aliyuncs.com/v2/browser-sdk.js', '__rum');
-		</script>
-		<div id="app" style="display: contents"></div>
-
-		<script>
-			var token = localStorage.getItem('token');
-			var base = window.WEBUI_BASE_URL || '';
-			var lang = localStorage.locale ?? (navigator.language.includes('zh') ? 'zh-CN' : 'en-US');
-			var config = {
-				credentials: 'include',
-				headers: {
-					Accept: 'application/json',
-					'Content-Type': 'application/json',
-					...(token ? { Authorization: `Bearer ${token}` } : {}),
-					'Accept-Language': lang
-				}
-			};
-
-			var sessionFetch = fetch(`${base}/api/v1/auths/`, config).then(async (res) => {
-				if (!res.ok) throw await res.json();
-				return res.json();
-			});
-
-			window.GLOBAL_FETCHES = {
-				session: sessionFetch,
-				config: fetch(`${base}/api/config`, config).then(async (res) => {
-					if (!res.ok) throw await res.json();
-					return res.json();
-				}),
-				// token 存在时与其他请求并行；不存在时需等 session 之后再请求 models
-				// 至少要 cookie 里有 token 才能正常请求 models
-				models: token
-					? fetch(`${base}/api/models`, config)
-					: sessionFetch.then(() => fetch(`${base}/api/models`, config)),
-				settings:
-					token &&
-					fetch(`${base}/api/v1/users/user/settings`, config).then(async (res) => {
-						if (!res.ok) throw await res.json();
-						return res.json();
-					})
-			};
-		</script>
-		<script async="" src="//o.alicdn.com/frontend-lib/common-lib/jquery.min.js"></script>
-	
-
-
-<style type="text/css" nonce="">
-	@keyframes pulse {
-		50% {
-			opacity: 0.65;
-		}
-	}
-
-	.animate-pulse-fast {
-		animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-	}
-</style>
-</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awera Prints | Custom Printing in DFW & Irving, TX</title>
+    <meta name="description" content="Awera Prints in Irving, TX offers same-day and next-day custom printing. We print custom balloons, t-shirts, banners, business cards, and more. Low minimum orders.">
+    <meta name="keywords" content="DFW printing, Irving TX print shop, custom t-shirts DFW, same day printing Irving, custom balloons, low minimum printing">
+    <link rel="icon" href="https://z-cdn-media.chatglm.cn/files/82c2ed0d-4ffc-4d7a-9c96-2ff3e2eb96c5.png?auth_key=1887384657-822197188eb64735bf6d174f1cb0df7d-0-9a5bcad0450a21755a6eff58db460af6">
+    <style>
+        :root { --primary-green: #0b6623; --light-green: #e6f5ea; --white: #ffffff; --dark-text: #333333; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { color: var(--dark-text); background-color: var(--white); }
+        header { background-color: var(--primary-green); padding: 15px 20px; color: var(--white); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
+        .logo img { height: 50px; background: white; padding: 3px; border-radius: 5px; }
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav a { color: var(--white); text-decoration: none; font-weight: bold; transition: color 0.3s; }
+        nav a:hover { color: #a5d6a7; }
+        .hero { background-color: var(--light-green); text-align: center; padding: 80px 20px; }
+        .hero h1 { color: var(--primary-green); font-size: 2.5em; margin-bottom: 15px; }
+        .hero p { font-size: 1.2em; margin-bottom: 10px; }
+        .slogan { font-style: italic; font-size: 1.4em !important; color: var(--dark-text); font-weight: bold; }
+        .highlights { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .card { background: var(--white); border: 2px solid var(--light-green); border-radius: 10px; padding: 20px; width: 300px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.05); transition: transform 0.3s; text-decoration: none; color: var(--dark-text); display: block; }
+        .card:hover { transform: translateY(-5px); border-color: var(--primary-green); }
+        .card h3 { color: var(--primary-green); margin-bottom: 10px; }
+        .cta-btn { display: inline-block; background-color: var(--primary-green); color: var(--white); padding: 12px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; margin-top: 20px; transition: background 0.3s; }
+        .cta-btn:hover { background-color: #084f1a; }
+        footer { background-color: var(--primary-green); color: var(--white); text-align: center; padding: 30px 20px; margin-top: 50px; }
+        .social-links a { color: var(--white); margin: 0 10px; text-decoration: none; font-size: 1.2em; }
+        .social-links a:hover { text-decoration: underline; }
+        .wa-btn { position: fixed; bottom: 25px; right: 25px; background-color: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 999; transition: transform 0.3s; }
+        .wa-btn:hover { transform: scale(1.1); }
+        .wa-tooltip { display: none; position: absolute; right: 75px; background: #333; color: #fff; padding: 8px 12px; border-radius: 5px; white-space: nowrap; }
+        .wa-btn:hover .wa-tooltip { display: block; }
+        @media (max-width: 600px) { nav ul { gap: 10px; margin-top: 10px; } .hero h1 { font-size: 2em; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo"><img src="https://z-cdn-media.chatglm.cn/files/82c2ed0d-4ffc-4d7a-9c96-2ff3e2eb96c5.png?auth_key=1887384657-822197188eb64735bf6d174f1cb0df7d-0-9a5bcad0450a21755a6eff58db460af6" alt="Awera Prints Logo"></div>
+            <nav><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+        </div>
+    </header>
+    <section class="hero">
+        <h1>Awera Prints</h1>
+        <p class="slogan">your designs. printed beautifully.</p>
+        <p>Premier Print Shop in Irving, TX serving the entire DFW Metroplex</p>
+        <a href="services.html" class="cta-btn">Explore Our Products</a>
+    </section>
+    <div class="highlights">
+        <a href="contact.html" class="card"><h3>Same & Next Day Delivery</h3><p>Need it fast? We offer rapid same-day and next-day delivery options across the Dallas-Fort Worth area. Click to contact us!</p></a>
+        <a href="services.html" class="card"><h3>Low Minimum Orders</h3><p>Whether you need one custom shirt or a hundred banners, we accommodate low minimum orders to fit your needs. See services!</p></a>
+        <a href="services.html#web-design" class="card"><h3>Professional Web Design</h3><p>Need an online presence? We also build SEO & GEO friendly websites for local businesses. Learn more!</p></a>
+    </div>
+    <footer>
+        <div class="social-links"><a href="https://facebook.com" target="_blank">Facebook</a><a href="https://instagram.com" target="_blank">Instagram</a><a href="https://linkedin.com" target="_blank">LinkedIn</a><a href="https://twitter.com" target="_blank">Twitter</a></div>
+        <p>&copy; 2023 Awera Prints | Irving, TX | DFW Metroplex</p>
+    </footer>
+    <a href="https://wa.me/12543333333?text=Hi%20Awera%20Prints%2C%20I%27d%20like%20to%20order%20some%20Printed%20Product%20Merchandise%20from%20you." target="_blank" class="wa-btn" aria-label="WhatsApp Chat">
+        <span class="wa-tooltip">Chat with us on WhatsApp!</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.835 7.835 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.626-2.961 6.584-6.584 6.584zm3.601-4.971c-.198-.099-1.17-.578-1.353-.644-.182-.065-.315-.099-.445.099-.132.198-.513.644-.627.775-.117.131-.234.146-.431.049-.198-.099-.837-.308-1.592-.985-.59-.527-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.198-.234.298-.352.099-.12.132-.198.198-.33.065-.132.033-.247-.016-.345-.049-.099-.445-1.076-.612-1.471-.16-.389-.323-.335-.445-.34-.114-.006-.247-.006-.38-.006-.132 0-.346.049-.527.247-.181.198-.691.675-.691 1.647 0 .971.709 1.916.808 2.049.099.132 1.471 2.247 3.565 3.146.497.218.886.346 1.189.445.499.165.954.142 1.314.088.403-.066 1.17-.478 1.335-.936.165-.456.165-.847.115-.936-.049-.099-.181-.149-.379-.247z"/></svg>
+    </a>
+</body>
+</html>
