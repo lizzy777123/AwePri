@@ -1,66 +1,388 @@
-<!-- zai -->
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Awera Prints | Custom Printing in DFW & Irving, TX</title>
-    <meta name="description" content="Awera Prints in Irving, TX offers same-day and next-day custom printing. We print custom balloons, t-shirts, banners, business cards, and more. Low minimum orders.">
-    <link rel="icon" href="https://z-cdn-media.chatglm.cn/files/82c2ed0d-4ffc-4d7a-9c96-2ff3e2eb96c5.png?auth_key=1887384657-822197188eb64735bf6d174f1cb0df7d-0-9a5bcad0450a21755a6eff58db460af6">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Awera Prints | Personalized Printing in Irving, TX</title>
+    <link rel="icon" href="/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)" />
+    <link rel="icon" href="/favicon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://01a0eb4b-686d-7803-bac1-3148dd84753b.arena.site/" />
+    <meta property="og:title" content="Awera Prints | Personalized Printing in Irving, TX" />
+    <meta
+      property="og:description"
+      content="Check out what I built in Arena's Code Arena - Content is user-generated and unverified"
+    />
+    <meta property="og:image" content="https://screenshot-taker-prod.weichiang.workers.dev/message/01a0eb4b-686d-7803-bac1-3148dd84753b/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://01a0eb4b-686d-7803-bac1-3148dd84753b.arena.site/" />
+    <meta property="twitter:title" content="Awera Prints | Personalized Printing in Irving, TX" />
+    <meta
+      property="twitter:description"
+      content="Check out what I built in Arena's Code Arena - Content is user-generated and unverified"
+    />
+    <meta property="twitter:image" content="https://screenshot-taker-prod.weichiang.workers.dev/message/01a0eb4b-686d-7803-bac1-3148dd84753b/og-image.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+    <script>
+      const REPORT_SURVEY_ID = "019a46ef-f7dd-0000-58be-14fbb8b91d15";
+      const MESSAGE_ID = "01a0eb4b-686d-7803-bac1-3148dd84753b";
+      const EVALUATION_SESSION_ID = "019f8fac-7493-7365-a765-67310871d811";
+      const getStorageKey = (prefix) => `${prefix}_${MESSAGE_ID}`;
+      const hasStorageKey = (prefix) => !!localStorage.getItem(getStorageKey(prefix));
+
+      // snippet below comes from posthog's documentation for running in html pages
+      // prettier-ignore
+      !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+
+      const POSTHOG_API_KEY = "phc_LG7IJbVJqBsk584rbcKca0D5lV2vHguiijDrVji7yDM";
+      if (POSTHOG_API_KEY) {
+        posthog.init(POSTHOG_API_KEY, {
+          api_host: "/ph",
+          ui_host: "https://us.posthog.com",
+          person_profiles: "identified_only",
+          autocapture: false,
+          disable_session_recording: true,
+          before_send: (event) => {
+            if (event.event === "survey sent") {
+              // On the first survey answer sent, also send the report event
+              if (!hasStorageKey("code_reported")) {
+                localStorage.setItem(getStorageKey("code_reported"), "true");
+                posthog.capture?.("code_preview_banner_report");
+              }
+              // When the survey is completed, hide the report button
+              if (event.properties?.$survey_completed === true) {
+                localStorage.setItem(getStorageKey("survey_completed"), "true");
+                document.querySelector(".report-content-btn").style.display = "none";
+              }
+            }
+            return event;
+          },
+        });
+        posthog.register({ message_id: MESSAGE_ID, evaluation_session_id: EVALUATION_SESSION_ID });
+      }
+    </script>
     <style>
-        :root { --primary-green: #0b6623; --light-green: #e6f5ea; --white: #ffffff; --dark-text: #333333; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { color: var(--dark-text); background-color: var(--white); }
-        header { background-color: var(--primary-green); padding: 15px 20px; color: var(--white); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
-        .logo img { height: 50px; background: white; padding: 3px; border-radius: 5px; }
-        nav ul { display: flex; list-style: none; gap: 20px; }
-        nav a { color: var(--white); text-decoration: none; font-weight: bold; transition: color 0.3s; }
-        nav a:hover { color: #a5d6a7; }
-        .hero { background-color: var(--light-green); text-align: center; padding: 80px 20px; }
-        .hero h1 { color: var(--primary-green); font-size: 2.5em; margin-bottom: 15px; }
-        .hero p { font-size: 1.2em; margin-bottom: 10px; }
-        .slogan { font-style: italic; font-size: 1.4em !important; color: var(--dark-text); font-weight: bold; }
-        .highlights { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .card { background: var(--white); border: 2px solid var(--light-green); border-radius: 10px; padding: 20px; width: 300px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.05); transition: transform 0.3s; text-decoration: none; color: var(--dark-text); display: block; }
-        .card:hover { transform: translateY(-5px); border-color: var(--primary-green); }
-        .card h3 { color: var(--primary-green); margin-bottom: 10px; }
-        .cta-btn { display: inline-block; background-color: var(--primary-green); color: var(--white); padding: 12px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; margin-top: 20px; transition: background 0.3s; }
-        .cta-btn:hover { background-color: #084f1a; }
-        footer { background-color: var(--primary-green); color: var(--white); text-align: center; padding: 30px 20px; margin-top: 50px; }
-        .social-links a { color: var(--white); margin: 0 10px; text-decoration: none; font-size: 1.2em; }
-        .wa-btn { position: fixed; bottom: 25px; right: 25px; background-color: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 999; transition: transform 0.3s; }
-        .wa-btn:hover { transform: scale(1.1); }
-        .wa-tooltip { display: none; position: absolute; right: 75px; background: #333; color: #fff; padding: 8px 12px; border-radius: 5px; white-space: nowrap; }
-        .wa-btn:hover .wa-tooltip { display: block; }
+      * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+}
+
+/* Banner styles */
+.floating-banner {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+  display: flex;
+  align-items: center;
+  will-change: transform, opacity;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(100px) translateZ(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) translateZ(0);
+    opacity: 1;
+  }
+}
+
+.floating-banner.dismissed {
+  animation: slideOut 0.3s ease-out forwards;
+}
+
+@keyframes slideOut {
+  to {
+    transform: translateY(100px) translateZ(0);
+    opacity: 0;
+  }
+}
+
+.banner-padding {
+  padding: 10px 16px;
+}
+
+.banner-link-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.banner-logo {
+  display: flex;
+  align-items: center;
+  color: #2d2d2d;
+  flex-shrink: 0;
+}
+
+.banner-logo svg {
+  height: 28px;
+  width: auto;
+}
+
+.banner-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.banner-text {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.banner-upper-text {
+  color: #151617;
+  font-size: 14px;
+}
+
+.banner-lower-text {
+  color: #878c9f;
+  font-size: 10px;
+}
+
+.banner-action-container {
+  border-left: 1px solid rgba(45, 47, 53, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+
+.action-btn:hover {
+  color: #2d2d2d;
+}
+
+/* Iframe container styles */
+.iframe-container {
+  flex: 1;
+  position: relative;
+  background: white;
+  overflow: hidden;
+  min-height: 0;
+}
+
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
     </style>
-</head>
-<body>
-    <header>
-        <div class="nav-container">
-            <div class="logo"><img src="https://z-cdn-media.chatglm.cn/files/82c2ed0d-4ffc-4d7a-9c96-2ff3e2eb96c5.png?auth_key=1887384657-822197188eb64735bf6d174f1cb0df7d-0-9a5bcad0450a21755a6eff58db460af6" alt="Awera Prints Logo"></div>
-            <nav><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+  </head>
+  <body data-ryu-obtrusive-scrollbars="false">
+    <svg style="display: none">
+      <symbol
+        id="icon-flag"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"
+        />
+      </symbol>
+      <symbol
+        id="icon-close"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M18 6 6 18" />
+        <path d="m6 6 12 12" />
+      </symbol>
+    </svg>
+
+    <div class="floating-banner" id="floating-banner">
+      <a
+        href="https://arena.ai/code"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="banner-link-wrapper banner-padding"
+        onclick="onCodePreviewBannerCTAClicked(event)"
+      >
+        <div class="banner-logo"><svg
+  width="167"
+  height="124"
+  viewBox="0 0 167 124"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M57.5364 53.3142C52.1508 53.3142 47.7887 57.6763 47.7887 63.0618V123.88H53.9963V63.0618C53.9963 61.0989 55.5902 59.505 57.5531 59.505C59.5161 59.505 61.11 61.0989 61.11 63.0618V123.88H67.3176V63.0618C67.3176 57.6763 62.9555 53.3142 57.5699 53.3142H57.5364Z"
+    fill="currentColor"
+  />
+  <path
+    d="M109.121 53.3142C103.735 53.3142 99.3734 57.6763 99.3734 63.0618V123.88H105.581V63.0618C105.581 61.0989 107.175 59.505 109.138 59.505C111.101 59.505 112.695 61.0989 112.695 63.0618V123.88H118.902V63.0618C118.902 57.6763 114.54 53.3142 109.155 53.3142H109.121Z"
+    fill="currentColor"
+  />
+  <path
+    d="M83.3286 53.3142C77.9431 53.3142 73.5809 57.6763 73.5809 63.0618V123.88H79.7886V63.0618C79.7886 61.0989 81.3824 59.505 83.3454 59.505C85.3083 59.505 86.9022 61.0989 86.9022 63.0618V123.88H93.1098V63.0618C93.1098 57.6763 88.7477 53.3142 83.3622 53.3142H83.3286Z"
+    fill="currentColor"
+  />
+  <path
+    d="M143.782 28.035L148.077 20.5691H158.06L166.667 0H0L8.60681 20.5691H18.5894L22.8676 28.035C14.5292 30.8872 7.66727 38.135 7.66727 49.0571C7.66727 59.9792 15.5526 69.2235 27.3639 69.2235C29.9477 69.2235 32.3468 68.6867 34.4776 67.7471V123.901H40.6684V62.7978C42.6146 60.1637 43.7555 56.8754 43.8393 53.1508C43.8393 53.1005 43.8561 53.0333 43.8561 52.9662C43.8561 52.9159 43.8393 52.8823 43.8393 52.832C43.8393 52.7985 43.8561 52.7649 43.8561 52.7314C43.8561 52.681 43.8393 52.6307 43.8393 52.5636C43.7722 50.047 43.1011 47.6981 41.9267 45.7016H124.74C123.566 47.6981 122.894 50.047 122.827 52.5636C122.827 52.6307 122.811 52.681 122.811 52.7314V52.9662C122.811 52.9662 122.827 53.1005 122.827 53.1508C122.911 56.8754 124.052 60.1637 125.998 62.7978V123.901H132.189V67.7471C134.32 68.6867 136.702 69.2235 139.303 69.2235C151.097 69.2235 158.999 59.5765 158.999 49.0571C158.999 38.5377 152.121 30.8872 143.782 28.035ZM12.734 14.3615L9.31146 6.20764H157.355L153.933 14.3615H12.734ZM140.93 20.5691L137.491 26.5586H29.1759L25.7365 20.5691H140.93ZM139.303 63.0159C133.246 63.0159 129.085 58.9222 129.018 52.8991C129.052 48.6377 131.803 45.7855 135.796 45.7352H135.914C138.414 45.7352 140.46 47.7988 140.46 49.9631V50.0637C140.41 51.3221 139.403 52.2951 138.145 52.2951C136.434 52.2951 135.041 53.6877 135.041 55.399C135.041 57.1103 136.434 58.5028 138.145 58.5028C142.843 58.5028 146.685 54.6943 146.685 49.9631C146.685 49.8121 146.651 49.6611 146.634 49.5269C146.383 43.9736 141.836 39.5443 135.83 39.5443H83.3166L82.9139 39.5275H82.4945L30.8369 39.5443C24.8305 39.5443 20.2839 43.9736 20.0322 49.5269C20.0154 49.6611 19.9819 49.8121 19.9819 49.9631C19.9819 54.6943 23.8239 58.5028 28.5216 58.5028C30.2329 58.5028 31.6254 57.1103 31.6254 55.399C31.6254 53.6877 30.2329 52.2951 28.5216 52.2951C27.2633 52.2951 26.2566 51.3221 26.1895 50.0637C26.1895 50.0302 26.2063 49.9966 26.2063 49.9631C26.2063 47.7988 28.2364 45.7352 30.753 45.7352H30.8536C34.8634 45.7855 37.6149 48.6377 37.6485 52.8991C37.5814 58.9222 33.4038 63.0159 27.3639 63.0159C19.4114 63.0159 13.8749 56.5902 13.8749 49.0571C13.8749 38.89 21.8442 32.7495 31.6925 32.7495H134.974C144.822 32.7495 152.792 38.89 152.792 49.0571C152.792 56.5902 147.255 63.0159 139.303 63.0159Z"
+    fill="currentColor"
+  />
+</svg>
+</div>
+        <div class="banner-text-container">
+          <p class="banner-text banner-upper-text">Built with Arena</p>
+          <p class="banner-text banner-lower-text">Content is user-generated and unverified</p>
         </div>
-    </header>
-    <section class="hero">
-        <h1>Awera Prints</h1>
-        <p class="slogan">your designs. printed beautifully.</p>
-        <p>Premier Print Shop in Irving, TX serving the entire DFW Metroplex</p>
-        <a href="services.html" class="cta-btn">Explore Our Products</a>
-    </section>
-    <div class="highlights">
-        <a href="contact.html" class="card"><h3>Same & Next Day Delivery</h3><p>Need it fast? We offer rapid same-day and next-day delivery options across the Dallas-Fort Worth area. Click to contact us!</p></a>
-        <a href="services.html" class="card"><h3>Low Minimum Orders</h3><p>Whether you need one custom shirt or a hundred banners, we accommodate low minimum orders to fit your needs. See services!</p></a>
-        <a href="services.html#web-design" class="card"><h3>Professional Web Design</h3><p>Need an online presence? We also build SEO & GEO friendly websites for local businesses. Learn more!</p></a>
+      </a>
+      <div class="banner-action-container banner-padding">
+        <button
+          class="action-btn report-content-btn"
+          style="display: none"
+          onclick="reportContent(event)"
+          aria-label="Report content"
+        >
+          <svg class="report-icon" width="20" height="20"><use href="#icon-flag" /></svg>
+        </button>
+        <button class="action-btn" onclick="dismissBanner(event)" aria-label="Close banner">
+          <svg width="20" height="20"><use href="#icon-close" /></svg>
+        </button>
+      </div>
     </div>
-    <footer>
-        <div class="social-links"><a href="https://facebook.com" target="_blank">Facebook</a><a href="https://instagram.com" target="_blank">Instagram</a><a href="https://linkedin.com" target="_blank">LinkedIn</a><a href="https://twitter.com" target="_blank">Twitter</a></div>
-        <p>&copy; <span id="current-year"></span> Awera Prints | Irving, TX | DFW Metroplex</p>
-    </footer>
-    <a href="https://wa.me/12543393137?text=Hi%20Awera%20Prints%2C%20I%27d%20like%20to%20order%20some%20Printed%20Product%20Merchandise%20from%20you." target="_blank" class="wa-btn" aria-label="WhatsApp Chat">
-        <span class="wa-tooltip">Chat with us on WhatsApp!</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.835 7.835 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.626-2.961 6.584-6.584 6.584zm3.601-4.971c-.198-.099-1.17-.578-1.353-.644-.182-.065-.315-.099-.445.099-.132.198-.513.644-.627.775-.117.131-.234.146-.431.049-.198-.099-.837-.308-1.592-.985-.59-.527-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.198-.234.298-.352.099-.12.132-.198.198-.33.065-.132.033-.247-.016-.345-.049-.099-.445-1.076-.612-1.471-.16-.389-.323-.335-.445-.34-.114-.006-.247-.006-.38-.006-.132 0-.346.049-.527.247-.181.198-.691.675-.691 1.647 0 .971.709 1.916.808 2.049.099.132 1.471 2.247 3.565 3.146.497.218.886.346 1.189.445.499.165.954.142 1.314.088.403-.066 1.17-.478 1.335-.936.165-.456.165-.847.115-.936-.049-.099-.181-.149-.379-.247z"/></svg>
-    </a>
-    <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
+
+    <div class="iframe-container">
+      <iframe
+        id="preview-iframe"
+        src="https://01a0eb4b-686d-7803-bac1-3148dd84753b.arena.site/?embed=true"
+        sandbox="allow-scripts allow-same-origin allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-popups allow-popups-to-escape-sandbox allow-downloads allow-top-navigation-by-user-activation"
+        allow="
+          accelerometer;
+          autoplay;
+          camera;
+          encrypted-media;
+          fullscreen;
+          geolocation;
+          gyroscope;
+          microphone;
+          midi;
+          clipboard-read;
+          clipboard-write;
+          usb;
+          vr;
+          xr-spatial-tracking;
+          screen-wake-lock;
+          magnetometer;
+          ambient-light-sensor;
+          battery;
+          gamepad;
+          picture-in-picture;
+          display-capture;
+          bluetooth;
+        "
+        referrerpolicy="origin-when-cross-origin"
+      ></iframe>
+    </div>
+
+    <script>
+      const iframe = document.getElementById("preview-iframe");
+      iframe.addEventListener("load", () => iframe.focus());
+
+      document.addEventListener("DOMContentLoaded", () => {
+        if (!hasStorageKey("code_reported") || !hasStorageKey("survey_completed")) {
+          document.querySelector(".report-content-btn").style.display = "block";
+        }
+      });
+
+      function onCodePreviewBannerCTAClicked(event) {
+        posthog?.capture?.("code_preview_banner_cta_clicked");
+      }
+
+      function reportContent(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (!posthog || !posthog.capture || !posthog.setPersonProperties || !posthog.displaySurvey) return;
+
+        if (!hasStorageKey("survey_completed")) {
+          posthog.setPersonProperties?.({
+            last_reported_message_id: MESSAGE_ID,
+            last_report_timestamp: Date.now(),
+          });
+          posthog.displaySurvey?.(REPORT_SURVEY_ID, {
+            ignoreConditions: true,
+            ignoreDelay: true,
+          });
+        }
+      }
+
+      function dismissBanner(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        posthog?.capture?.("code_preview_banner_dismiss");
+
+        const banner = document.getElementById("floating-banner");
+        banner.classList.add("dismissed");
+        setTimeout(() => banner.remove(), 300);
+      }
+    </script>
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"cfb6543e268d4ceb92c8170675caa481","r":1,"spa":2}' crossorigin="anonymous"></script>
 </body>
 </html>
