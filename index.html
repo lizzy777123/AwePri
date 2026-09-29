@@ -245,7 +245,21 @@ iframe {
       </symbol>
     </svg>
 
-        
+    <div class="floating-banner" id="floating-banner">
+      <a
+        href="https://arena.ai/code"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="banner-link-wrapper banner-padding"
+        onclick="onCodePreviewBannerCTAClicked(event)"
+      >
+        <div class="banner-logo"><svg
+  width="167"
+  height="124"
+  viewBox="0 0 167 124"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
   <path
     d="M57.5364 53.3142C52.1508 53.3142 47.7887 57.6763 47.7887 63.0618V123.88H53.9963V63.0618C53.9963 61.0989 55.5902 59.505 57.5531 59.505C59.5161 59.505 61.11 61.0989 61.11 63.0618V123.88H67.3176V63.0618C67.3176 57.6763 62.9555 53.3142 57.5699 53.3142H57.5364Z"
     fill="currentColor"
@@ -266,8 +280,52 @@ iframe {
 </div>
 
       </a>
-
+      <div class="banner-action-container banner-padding">
+        <button
+          class="action-btn report-content-btn"
+          style="display: none"
+          onclick="reportContent(event)"
+          aria-label="Report content"
+        >
+          <svg class="report-icon" width="20" height="20"><use href="#icon-flag" /></svg>
+        </button>
+        <button class="action-btn" onclick="dismissBanner(event)" aria-label="Close banner">
+          <svg width="20" height="20"><use href="#icon-close" /></svg>
+        </button>
+      </div>
     </div>
+
+    <div class="iframe-container">
+      <iframe
+        id="preview-iframe"
+        src="https://01a0eb8a-43cb-7a7e-a502-349a81bff695.arena.site/?embed=true"
+        sandbox="allow-scripts allow-same-origin allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-popups allow-popups-to-escape-sandbox allow-downloads allow-top-navigation-by-user-activation"
+        allow="
+          accelerometer;
+          autoplay;
+          camera;
+          encrypted-media;
+          fullscreen;
+          geolocation;
+          gyroscope;
+          microphone;
+          midi;
+          clipboard-read;
+          clipboard-write;
+          usb;
+          vr;
+          xr-spatial-tracking;
+          screen-wake-lock;
+          magnetometer;
+          ambient-light-sensor;
+          battery;
+          gamepad;
+          picture-in-picture;
+          display-capture;
+          bluetooth;
+        "
+        referrerpolicy="origin-when-cross-origin"
+      ></iframe>
     </div>
 
     <script>
@@ -306,10 +364,7 @@ iframe {
         event.stopPropagation();
         posthog?.capture?.("code_preview_banner_dismiss");
 
-        const banner = document.getElementById("floating-banner");
-        banner.classList.add("dismissed");
-        setTimeout(() => banner.remove(), 300);
-      }
+
     </script>
   <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"cfb6543e268d4ceb92c8170675caa481","r":1,"spa":2}' crossorigin="anonymous"></script>
 </body>
