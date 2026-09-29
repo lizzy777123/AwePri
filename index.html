@@ -113,9 +113,6 @@ body {
   }
 }
 
-.floating-banner.dismissed {
-  animation: slideOut 0.3s ease-out forwards;
-}
 
 @keyframes slideOut {
   to {
@@ -311,11 +308,8 @@ iframe {
           });
         }
       }
-
-      function dismissBanner(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        posthog?.capture?.("code_preview_banner_dismiss");
+      
+      ;
 
 
     </script>
